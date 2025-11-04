@@ -6,7 +6,10 @@
                 "dev": "react-router dev",
                 "build": "react-router build",
                 "start": "react-router-serve ./build/server/index.js",
-                "typecheck": "react-router typegen && tsc --noEmit"
+                "typecheck": "react-router typegen && tsc --noEmit",
+                "setup": "node ../setup.js",
+                "db:create-tables": "echo 'Please run the SQL commands from replit.md to create database tables'",
+                "clean": "rm -rf build .react-router node_modules/.vite"
         },
         "dependencies": {
                 "@auth/core": "^0.37.2",
