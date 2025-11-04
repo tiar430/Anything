@@ -8,11 +8,11 @@ const safeStringify = (value: unknown) =>
       return { __t: 'Error', v: { name: v.name, message: v.message, stack: v.stack } };
     return v;
   });
-
+type ConsoleLevel = 'log' | 'warn' | 'error' | 'info' | 'debug';
 const postToParent = (level: string, text: string, extra: unknown) => {
   try {
     if (isBackend() || !window.parent || window.parent === window) {
-      ('level' in console ? console[level] : console.log)(text, extra);
+      console[level](text, extra);
       return;
     }
     window.parent.postMessage(
